@@ -16,5 +16,7 @@ $NS exec $DN $LINK del dev macvlan0
 $NS del $DN
 
 
+echo "delete dhclient"
+sudo killall  dhclient
 
 echo "Setting UERANSIM DN environment done."

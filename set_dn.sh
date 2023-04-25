@@ -27,9 +27,11 @@ $NS exec $DN $ROUTE add default dev macvlan0
 $NS exec $DN route -n
 
 $NS exec $DN ip -o link | awk '$2 != "lo:" {print $2, $(NF-4)}' 
-#$NS exec $DN ifconfig macvlan0 hw ether 00:00:88:73:00:0a
+$NS exec $DN ifconfig macvlan0 hw ether ba:bd:c7:54:f8:d9
 
 $NS exec $DN ip link set macvlan0 up
+$NS exec $DN iptables -A OUTPUT -t mangle -o macvlan0 -p udp --dport 67 -j CHECKSUM --checksum-fill
+$NS exec $DN bash
 
 
 echo "Setting UERANSIM DN environment done."
