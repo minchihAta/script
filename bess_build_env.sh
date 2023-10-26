@@ -1,12 +1,16 @@
 #!/bin/bash
 
 #set -o xtrace
-
-IMAGE="atayalan/dpdkbuildenv"
-VERSION="latest"
 CONTAINER_NAME="bess_build_env"
-PROJECTS_MOUNT="/home/vm73/projects:/home/ataya/projects"
+# v1.5 v1.6 setting
+IMAGE="766589103339.dkr.ecr.us-west-2.amazonaws.com/jenkinsci/upf-dpdk-devenv"
+PROJECTS_MOUNT="/home/vm76/projects:/bess/projects"
+VERSION="0.1.14"
 
+# v1.2 setting
+#IMAGE="atayalan/dpdkbuildenv"
+#VERSION="latest"
+#PROJECTS_MOUNT="/home/vm76/projects:/home/ataya/projects"
 
 runDocker()
 {
